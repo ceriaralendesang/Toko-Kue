@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CeyCakes - toko cake dan dessert.">
+  <title>Menu | CeyCakes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top bakery-navbar">
+    <div class="container">
+      <a class="navbar-brand brand-name" href="index.html">CEY<span>CAKES.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Buka navigasi">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang Kami</a></li>
+          <li class="nav-item"><a class="nav-link active" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+          <li class="nav-item">
+            <button class="btn cart-button" data-bs-toggle="modal" data-bs-target="#cartModal" type="button">
+              <i class="bi bi-bag"></i> Keranjang <span id="cartCount" class="cart-count">0</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <p class="eyebrow">OUR MENU</p>
+      <h1>Menu yang Manis</h1>
+      <p>Pilih cake dan dessert favoritmu. Harga berikut adalah contoh untuk demonstrasi website.</p>
+    </div>
+  </header>
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+        <button class="btn btn-outline-main filter-btn active" type="button" data-filter="all">Semua</button>
+        <button class="btn btn-outline-main filter-btn" type="button" data-filter="cake">Cake</button>
+        <button class="btn btn-outline-main filter-btn" type="button" data-filter="dessert">Dessert</button>
+        <button class="btn btn-outline-main filter-btn" type="button" data-filter="snack">Snack</button>
+      </div>
+      <div class="row g-4" id="menuGrid">
+        <div class="col-md-6 col-lg-4 menu-product" data-category="cake">
+          <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80" alt="Chocolate Delight">
+            <div class="product-info">
+              <span class="product-category">CAKE</span>
+              <h5>Chocolate Delight</h5>
+              <p>Kue cokelat dengan ganache.</p>
+              <div class="product-bottom"><strong>Rp85.000</strong><button class="btn btn-add" type="button" onclick="addToCart('Chocolate Delight',85000)"><i class="bi bi-plus-lg"></i> Pesan</button></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 menu-product" data-category="dessert">
+          <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=700&q=80" alt="Strawberry Cream">
+            <div class="product-info">
+              <span class="product-category">DESSERT</span>
+              <h5>Strawberry Cream</h5>
+              <p>Krim lembut dan strawberry.</p>
+              <div class="product-bottom"><strong>Rp65.000</strong><button class="btn btn-add" type="button" onclick="addToCart('Strawberry Cream',65000)"><i class="bi bi-plus-lg"></i> Pesan</button></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 menu-product" data-category="snack">
+          <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80" alt="Fudgy Brownies">
+            <div class="product-info">
+              <span class="product-category">SNACK</span>
+              <h5>Fudgy Brownies</h5>
+              <p>Brownies cokelat fudgy.</p>
+              <div class="product-bottom"><strong>Rp45.000</strong><button class="btn btn-add" type="button" onclick="addToCart('Fudgy Brownies',45000)"><i class="bi bi-plus-lg"></i> Pesan</button></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 menu-product" data-category="cake">
+          <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=700&q=80" alt="Vanilla Cupcake">
+            <div class="product-info">
+              <span class="product-category">CAKE</span>
+              <h5>Vanilla Cupcake</h5>
+              <p>Cupcake vanilla dengan frosting.</p>
+              <div class="product-bottom"><strong>Rp15.000</strong><button class="btn btn-add" type="button" onclick="addToCart('Vanilla Cupcake',15000)"><i class="bi bi-plus-lg"></i> Pesan</button></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 menu-product" data-category="dessert">
+          <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=700&q=80" alt="Oreo Dessert Box">
+            <div class="product-info">
+              <span class="product-category">DESSERT</span>
+              <h5>Oreo Dessert Box</h5>
+              <p>Dessert box dengan lapisan biskuit.</p>
+              <div class="product-bottom"><strong>Rp35.000</strong><button class="btn btn-add" type="button" onclick="addToCart('Oreo Dessert Box',35000)"><i class="bi bi-plus-lg"></i> Pesan</button></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 menu-product" data-category="cake">
+          <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=700&q=80" alt="Classic Cheesecake">
+            <div class="product-info">
+              <span class="product-category">CAKE</span>
+              <h5>Classic Cheesecake</h5>
+              <p>Cheesecake lembut bergaya klasik.</p>
+              <div class="product-bottom"><strong>Rp75.000</strong><button class="btn btn-add" type="button" onclick="addToCart('Classic Cheesecake',75000)"><i class="bi bi-plus-lg"></i> Pesan</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="cartNotice" class="alert alert-success d-none mt-4" role="status"></div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".filter-btn").forEach(button => {
+        button.addEventListener("click", () => {
+          document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
+          button.classList.add("active");
+          const filter = button.dataset.filter;
+          document.querySelectorAll(".menu-product").forEach(card => {
+            card.classList.toggle("d-none", filter !== "all" && card.dataset.category !== filter);
+          });
+        });
+      });
+    });
+  </script>
+
+  <footer class="footer-section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <h3 class="footer-brand">CEYCAKES.</h3>
+          <p>Menghadirkan cake dan dessert istimewa untuk setiap cerita manis dalam hidupmu.</p>
+        </div>
+        <div class="col-md-3">
+          <h6>Quick Links</h6>
+          <a href="index.html">Beranda</a>
+          <a href="tentang.html">Tentang Kami</a>
+          <a href="menu.html">Menu</a>
+          <a href="galeri.html">Galeri</a>
+          <a href="kontak.html">Kontak</a>
+        </div>
+        <div class="col-md-3">
+          <h6>Hubungi Kami</h6>
+          <p><i class="bi bi-geo-alt"></i> Alamat toko: lengkapi sesuai lokasi</p>
+          <p><i class="bi bi-whatsapp"></i> WhatsApp: isi nomor toko</p>
+          <p><i class="bi bi-instagram"></i> @ceycakes (contoh)</p>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        <p class="mb-0">© <span id="year">2026</span> CeyCakes. Project Final Website UMKM.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalTitle"><i class="bi bi-bag-heart"></i> Keranjang Belanja</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <div id="cartItems"></div>
+          <hr>
+          <div class="d-flex justify-content-between"><strong>Total Belanja</strong><strong id="cartTotal">Rp0</strong></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Lanjut Belanja</button>
+          <button type="button" class="btn btn-main" onclick="checkout()">Lanjut Pesan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
